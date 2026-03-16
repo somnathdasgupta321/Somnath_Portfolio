@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Strategist & Designer Portfolio</title>
+    <title>Somnath Dasgupta | Product Strategist & Designer</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -113,6 +113,7 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
+            gap: 10px;
             padding: 14px 28px;
             border-radius: 8px;
             font-weight: 500;
@@ -120,6 +121,11 @@
             transition: var(--transition);
             cursor: pointer;
             border: none;
+        }
+
+        .btn svg {
+            width: 20px;
+            height: 20px;
         }
 
         .btn-primary {
@@ -158,9 +164,18 @@
             padding-top: 150px;
         }
 
+        .about-intro {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 24px;
+            color: var(--accent-gradient-end);
+            margin-bottom: 16px;
+            display: block;
+        }
+
         .hero p {
-            max-width: 700px;
+            max-width: 750px;
             margin-bottom: 48px;
+            font-size: 20px;
         }
 
         .hero-cta {
@@ -188,26 +203,29 @@
             box-shadow: 0 20px 40px rgba(0,0,0,0.3), 0 0 30px rgba(99, 102, 241, 0.05);
         }
 
-        .img-placeholder {
+        .project-image {
             width: 100%;
+            height: 220px;
             border-radius: 8px;
-            background: rgba(255,255,255,0.03);
             margin-bottom: 24px;
+            background-size: cover;
+            background-position: center;
+            border: 1px solid rgba(255,255,255,0.05);
             position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.02);
         }
         
-        .img-placeholder::after {
+        /* Subtle dark overlay to keep images blending with the dark theme */
+        .project-image::after {
             content: '';
             position: absolute;
-            top: 0; left: -100%; width: 50%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.04), transparent);
-            animation: shimmer 4s infinite;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to bottom, rgba(11, 11, 12, 0.1), rgba(11, 11, 12, 0.6));
+            border-radius: 8px;
+            transition: var(--transition);
         }
 
-        @keyframes shimmer {
-            100% { left: 200%; }
+        .glass-card:hover .project-image::after {
+            opacity: 0.3;
         }
 
         /* --- THE PRODUCT ENGINE --- */
@@ -244,8 +262,6 @@
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 32px;
         }
-
-        .work-card .img-placeholder { height: 220px; }
         
         .tag-group {
             display: flex;
@@ -380,8 +396,9 @@
     <div class="gradient-blob blob-2"></div>
 
     <section class="container hero" data-aos="fade-up" data-aos-duration="1000">
+        <span class="about-intro">Hello, I am Somnath.</span>
         <h1 class="hero-headline">Bridging the gap between <br><span class="gradient-text">business strategy, data,</span><br>and human-centered design.</h1>
-        <p class="subtitle">I am a Product Strategist and Designer who leverages an engineering and analytics backbone to build high-fidelity, scalable solutions.</p>
+        <p class="body-text" style="font-size: 18px;">I sit at the rare intersection of engineering logic, analytics, and product empathy. I don't just push pixels; I decode data, ruthlessly prioritize business objectives, and materialize high-fidelity digital products that actually solve problems and drive ROI. Welcome to my digital workspace.</p>
         <div class="hero-cta">
             <a href="#work" class="btn btn-primary">View Selected Work</a>
             <a href="#contact" class="btn btn-secondary">Get in Touch</a>
@@ -417,7 +434,7 @@
 
         <div class="work-grid">
             <div class="glass-card work-card" data-aos="fade-up" data-aos-delay="100">
-                <div class="img-placeholder"></div>
+                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1516280440502-a2f0701bc936?auto=format&fit=crop&w=800&q=80');"></div>
                 <div class="tag-group">
                     <span class="tag">0-to-1 Product</span>
                     <span class="tag">System Design</span>
@@ -425,11 +442,11 @@
                 </div>
                 <h3>Kalakar</h3>
                 <p class="body-text">Architected India's first 3-sided creator marketplace unifying talent, fans, and production houses. Designed cohort learning flows, UPI-native monetization, and a proprietary discovery algorithm.</p>
-                <a href="#" class="link">View Case Study &rarr;</a>
+                <a href="https://rake-slate-47023406.figma.site/" target="_blank" rel="noopener noreferrer" class="link">Explore the build &rarr;</a>
             </div>
 
             <div class="glass-card work-card" data-aos="fade-up" data-aos-delay="200">
-                <div class="img-placeholder"></div>
+                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=800&q=80');"></div>
                 <div class="tag-group">
                     <span class="tag">Product Strategy</span>
                     <span class="tag">Feature Adoption</span>
@@ -437,11 +454,11 @@
                 </div>
                 <h3>CheQ</h3>
                 <p class="body-text">Reimagined the credit management lifecycle for a platform processing $5B+. Designed a unified strategy to simplify first-time user experiences while driving power-user feature adoption and personalization.</p>
-                <a href="#" class="link">View Case Study &rarr;</a>
+                <a href="https://cheq-zen-onboard.lovable.app/" target="_blank" rel="noopener noreferrer" class="link">Dive into the prototype &rarr;</a>
             </div>
 
             <div class="glass-card work-card" data-aos="fade-up" data-aos-delay="300">
-                <div class="img-placeholder"></div>
+                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1579621970588-a35d0e7ab9b6?auto=format&fit=crop&w=800&q=80');"></div>
                 <div class="tag-group">
                     <span class="tag">UI/UX Redesign</span>
                     <span class="tag">AI Integration</span>
@@ -449,11 +466,11 @@
                 </div>
                 <h3>Jar Teardown & Redesign</h3>
                 <p class="body-text">Overhauled the core UI/UX of a popular savings app, integrating AI customer support and ultra-level personalization to drive retention. Awarded 2nd Runner-Up at a National Hackathon.</p>
-                <a href="#" class="link">View Case Study &rarr;</a>
+                <a href="https://arc-nexus.lovable.app/auth" target="_blank" rel="noopener noreferrer" class="link">See the magic &rarr;</a>
             </div>
 
             <div class="glass-card work-card" data-aos="fade-up" data-aos-delay="400">
-                <div class="img-placeholder"></div>
+                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80');"></div>
                 <div class="tag-group">
                     <span class="tag">FinTech</span>
                     <span class="tag">Gamification</span>
@@ -461,29 +478,29 @@
                 </div>
                 <h3>Bachat-Buddy</h3>
                 <p class="body-text">Designed a student-first personal finance app featuring gamified savings and UPI-first onboarding. Built an extended lifecycle mode to adapt smoothly as users transition into working professionals.</p>
-                <a href="#" class="link">View Case Study &rarr;</a>
+                <a href="https://preview--student-fund-savvy.lovable.app/" target="_blank" rel="noopener noreferrer" class="link">Check it out &rarr;</a>
             </div>
 
             <div class="glass-card work-card" data-aos="fade-up" data-aos-delay="500">
-                <div class="img-placeholder"></div>
+                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&fit=crop&w=800&q=80');"></div>
                 <div class="tag-group">
                     <span class="tag">AI Companion</span>
                     <span class="tag">High-Fidelity Prototyping</span>
                 </div>
                 <h3>Aura for Minimalist</h3>
                 <p class="body-text">Created an AI skincare companion targeting the 18-25 demographic. Mapped complex user journeys to simplify product discovery and defined core success metrics including activation and feature adoption.</p>
-                <a href="#" class="link">View Case Study &rarr;</a>
+                <a href="https://app.visily.ai/projects/0893e7c1-55b3-49ac-b2a7-3005f768971e/boards/2046344/presenter?play-mode=Prototype" target="_blank" rel="noopener noreferrer" class="link">Interact with the UI &rarr;</a>
             </div>
 
             <div class="glass-card work-card" data-aos="fade-up" data-aos-delay="600">
-                <div class="img-placeholder"></div>
+                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=800&q=80');"></div>
                 <div class="tag-group">
                     <span class="tag">Logic Design</span>
                     <span class="tag">Onboarding Flows</span>
                 </div>
                 <h3>Roomiematch</h3>
                 <p class="body-text">Developed matching criteria, scoring logic, and frictionless onboarding flows for a student roommate platform. Prioritized the v1 feature set using KANO and RICE frameworks.</p>
-                <a href="#" class="link">View Case Study &rarr;</a>
+                <a href="https://www.figma.com/proto/b4fRg0mMBgkTY2ofwG4N0k/RoomiMatch-App-Front-End?node-id=26-8&p=f&t=4u55rxICoFBepgIs-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=26%3A8" target="_blank" rel="noopener noreferrer" class="link">View the wireframes &rarr;</a>
             </div>
         </div>
     </section>
@@ -550,8 +567,25 @@
         <h2 class="hero-headline">Let's build something <br><span class="gradient-text">meaningful.</span></h2>
         <p class="body-text">I'm currently exploring new opportunities at the intersection of product, business analysis, and design.</p>
         <div class="contact-buttons">
-            <a href="mailto:hello@example.com" class="btn btn-primary">Email Me</a>
-            <a href="#" class="btn btn-secondary">LinkedIn</a>
+            <a href="mailto:hello@example.com" class="btn btn-primary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                Email Me
+            </a>
+            
+            <a href="https://www.linkedin.com/in/somnathdasgupta-sam" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                LinkedIn
+            </a>
+
+            <a href="https://public.tableau.com/app/profile/somnath.das.gupta/vizzes" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5v14M7 9v6M22 9v6M2 11v2"/></svg>
+                Tableau
+            </a>
+
+            <a href="https://onedrive.live.com/?id=A15879A1CF8F4468%214051&cid=A15879A1CF8F4468&redeem=aHR0cHM6Ly8xZHJ2Lm1zL2YvYy9hMTU4NzlhMWNmOGY0NDY4L0VtaEVqOC1oZVZnZ2dLSFREd0FBQUFBQjREcEV3a2pzQXBJY2Y1cVF2MjRyQ2c%5FZT13Qzlta2c" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg>
+                OneDrive
+            </a>
         </div>
     </section>
 
