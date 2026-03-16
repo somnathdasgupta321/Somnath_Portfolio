@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Designer Portfolio</title>
+    <title>Product Strategist & Designer Portfolio</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,9 +17,10 @@
             --bg-color: #0B0B0C;
             --text-primary: #FFFFFF;
             --text-secondary: #A1A1AA;
+            --text-muted: #71717A;
             --accent-gradient-start: #6366F1;
             --accent-gradient-end: #22D3EE;
-            --card-bg: rgba(255, 255, 255, 0.04);
+            --card-bg: rgba(255, 255, 255, 0.03);
             --card-border: rgba(255, 255, 255, 0.08);
             --card-hover-border: rgba(255, 255, 255, 0.15);
             --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -30,6 +31,10 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -53,11 +58,12 @@
         }
 
         /* --- TYPOGRAPHY --- */
-        .hero-headline { font-size: clamp(40px, 5vw, 64px); line-height: 1.1; font-weight: 700; margin-bottom: 24px; }
-        .section-title { font-size: clamp(28px, 4vw, 36px); font-weight: 600; margin-bottom: 48px; }
-        .subtitle { font-size: clamp(18px, 3vw, 22px); font-weight: 500; color: var(--text-secondary); }
-        .body-text { font-size: 18px; font-weight: 400; color: var(--text-secondary); }
-        .caption { font-size: 14px; color: var(--text-secondary); }
+        .hero-headline { font-size: clamp(40px, 6vw, 72px); line-height: 1.1; font-weight: 700; margin-bottom: 24px; }
+        .section-title { font-size: clamp(32px, 4vw, 40px); font-weight: 600; margin-bottom: 16px; }
+        .section-subtitle { font-size: 18px; color: var(--text-secondary); margin-bottom: 64px; max-width: 600px; }
+        .subtitle { font-size: clamp(18px, 3vw, 22px); font-weight: 400; color: var(--text-secondary); }
+        .body-text { font-size: 16px; font-weight: 400; color: var(--text-secondary); line-height: 1.7; }
+        .caption { font-size: 14px; color: var(--text-muted); }
 
         .gradient-text {
             background: linear-gradient(135deg, var(--accent-gradient-start), var(--accent-gradient-end));
@@ -85,26 +91,21 @@
             max-width: 600px; max-height: 600px;
             background: linear-gradient(135deg, var(--accent-gradient-start), var(--accent-gradient-end));
             filter: blur(140px);
-            opacity: 0.15;
+            opacity: 0.12;
             z-index: -1;
             border-radius: 50%;
-            animation: float 12s ease-in-out infinite alternate;
+            animation: float 15s ease-in-out infinite alternate;
             pointer-events: none;
         }
 
         .blob-1 { top: -10%; left: -10%; }
-        .blob-2 { bottom: 20%; right: -10%; animation-delay: -5s; }
-
-        @keyframes float {
-            0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(30px, 50px) scale(1.1); }
-        }
+        .blob-2 { bottom: 10%; right: -10%; animation-delay: -5s; }
 
         /* --- LAYOUT & CONTAINERS --- */
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 100px 5%;
+            padding: 120px 5%;
         }
 
         /* --- BUTTONS --- */
@@ -148,24 +149,24 @@
 
         /* --- HERO SECTION --- */
         .hero {
-            min-height: 90vh;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-items: center;
-            text-align: center;
+            align-items: flex-start;
             position: relative;
+            padding-top: 150px;
         }
 
         .hero p {
             max-width: 700px;
-            margin: 0 auto 40px;
+            margin-bottom: 48px;
         }
 
         .hero-cta {
             display: flex;
             gap: 16px;
-            justify-content: center;
+            flex-wrap: wrap;
         }
 
         /* --- CARDS & GLASSMORPHISM --- */
@@ -177,151 +178,179 @@
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             transition: var(--transition);
+            display: flex;
+            flex-direction: column;
         }
 
         .glass-card:hover {
-            transform: translateY(-6px) scale(1.01);
+            transform: translateY(-4px);
             border-color: var(--card-hover-border);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 30px rgba(99, 102, 241, 0.05);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3), 0 0 30px rgba(99, 102, 241, 0.05);
         }
 
         .img-placeholder {
             width: 100%;
             border-radius: 8px;
-            background: rgba(255,255,255,0.05);
+            background: rgba(255,255,255,0.03);
             margin-bottom: 24px;
             position: relative;
             overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.02);
         }
         
         .img-placeholder::after {
             content: '';
             position: absolute;
             top: 0; left: -100%; width: 50%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
-            animation: shimmer 3s infinite;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.04), transparent);
+            animation: shimmer 4s infinite;
         }
 
         @keyframes shimmer {
             100% { left: 200%; }
         }
 
-        /* --- SELECTED WORK --- */
-        .work-grid {
+        /* --- THE PRODUCT ENGINE --- */
+        .engine-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 32px;
+            gap: 24px;
         }
 
-        .work-card .img-placeholder { height: 240px; }
-        .tag {
-            display: inline-block;
-            padding: 6px 12px;
-            border-radius: 100px;
-            background: rgba(255,255,255,0.05);
-            font-size: 12px;
-            font-weight: 500;
-            margin-bottom: 16px;
-            color: var(--text-secondary);
-            border: 1px solid var(--card-border);
-        }
-        .work-card h3 { font-size: 24px; margin-bottom: 12px; }
-        .work-card p { margin-bottom: 24px; }
-        .work-card .link {
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--text-primary);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: var(--transition);
-        }
-        .work-card .link:hover { color: var(--accent-gradient-end); gap: 12px; }
-
-        /* --- CASE STUDIES --- */
-        .case-study-card {
-            display: flex;
-            gap: 40px;
-            align-items: center;
-            margin-bottom: 32px;
-            padding: 40px;
-        }
-        
-        .case-study-card .img-placeholder {
-            flex: 1;
-            height: 300px;
-            margin-bottom: 0;
+        .engine-step {
+            position: relative;
         }
 
-        .case-study-content { flex: 1; }
-        .case-study-content h3 { font-size: 28px; margin-bottom: 16px; }
-        .metrics {
-            margin-top: 24px;
-            padding-top: 24px;
-            border-top: 1px solid var(--card-border);
-        }
-        .metric-value {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--accent-gradient-start);
+        .step-number {
             font-family: 'Space Grotesk', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: rgba(255,255,255,0.05);
+            position: absolute;
+            top: 16px;
+            right: 24px;
+            line-height: 1;
         }
 
-        /* --- PHILOSOPHY --- */
-        .philosophy {
-            text-align: center;
-            padding: 150px 5%;
-        }
-        .philosophy h2 {
-            font-size: clamp(32px, 4vw, 48px);
-            line-height: 1.3;
-            max-width: 900px;
-            margin: 0 auto;
+        .engine-step h3 {
+            font-size: 24px;
+            margin-bottom: 12px;
             color: var(--text-primary);
-            font-weight: 500;
         }
 
-        /* --- SKILLS --- */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-            gap: 16px;
-        }
-        .skill-card {
-            padding: 20px;
-            text-align: center;
-            font-weight: 500;
-        }
-        .skill-card:hover { border-color: var(--accent-gradient-end); }
-
-        /* --- TESTIMONIALS --- */
-        .testimonials-grid {
+        /* --- SELECTED WORK --- */
+        .work-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 32px;
         }
-        .testimonial-text {
+
+        .work-card .img-placeholder { height: 220px; }
+        
+        .tag-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 100px;
+            background: rgba(255,255,255,0.05);
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            border: 1px solid var(--card-border);
+        }
+
+        .work-card h3 { font-size: 24px; margin-bottom: 12px; }
+        .work-card p { margin-bottom: 24px; flex-grow: 1; }
+        
+        .work-card .link {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+            margin-top: auto;
+        }
+        
+        .work-card .link:hover { color: var(--accent-gradient-end); gap: 12px; }
+
+        /* --- STRATEGIC ENGAGEMENTS --- */
+        .strategy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .strategy-item {
+            padding: 24px;
+            border-left: 2px solid var(--card-border);
+            transition: var(--transition);
+        }
+
+        .strategy-item:hover {
+            border-left-color: var(--accent-gradient-start);
+            background: linear-gradient(90deg, rgba(255,255,255,0.02) 0%, transparent 100%);
+        }
+
+        .strategy-item h4 {
             font-size: 18px;
-            font-style: italic;
-            margin-bottom: 24px;
+            margin-bottom: 8px;
             color: var(--text-primary);
         }
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 16px;
+
+        /* --- ARSENAL & CREDENTIALS --- */
+        .split-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
         }
-        .author-avatar {
-            width: 48px; height: 48px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.1);
+
+        .arsenal-list, .credential-list {
+            list-style: none;
+        }
+
+        .arsenal-category {
+            margin-bottom: 24px;
+        }
+
+        .arsenal-category h4 {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+        }
+
+        .credential-list li {
+            padding: 16px 0;
+            border-bottom: 1px solid var(--card-border);
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+        }
+
+        .credential-list li:last-child {
+            border-bottom: none;
+        }
+
+        .credential-highlight {
+            color: var(--accent-gradient-end);
+            font-weight: 500;
         }
 
         /* --- CONTACT --- */
         .contact {
             text-align: center;
-            padding-bottom: 150px;
+            padding: 150px 5%;
         }
+
         .contact-buttons {
             display: flex;
             gap: 16px;
@@ -331,10 +360,16 @@
         }
 
         /* --- RESPONSIVE --- */
+        @media (max-width: 992px) {
+            .split-section { grid-template-columns: 1fr; gap: 48px; }
+        }
+
         @media (max-width: 768px) {
-            .hero-cta { flex-direction: column; }
-            .case-study-card { flex-direction: column; padding: 24px; }
-            .case-study-card .img-placeholder { width: 100%; height: 200px; }
+            .hero { text-align: left; padding-top: 100px; }
+            .hero-cta { flex-direction: column; width: 100%; }
+            .hero-cta .btn { width: 100%; }
+            .container { padding: 80px 5%; }
+            .work-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -345,138 +380,191 @@
     <div class="gradient-blob blob-2"></div>
 
     <section class="container hero" data-aos="fade-up" data-aos-duration="1000">
-        <h1 class="hero-headline">Designing products <br><span class="gradient-text">people love.</span></h1>
-        <p class="subtitle">Product designer and product strategist focused on building intuitive digital experiences and scalable product systems.</p>
+        <h1 class="hero-headline">Bridging the gap between <br><span class="gradient-text">business strategy, data,</span><br>and human-centered design.</h1>
+        <p class="subtitle">I am a Product Strategist and Designer who leverages an engineering and analytics backbone to build high-fidelity, scalable solutions.</p>
         <div class="hero-cta">
-            <a href="#work" class="btn btn-primary">View Work</a>
-            <a href="#contact" class="btn btn-secondary">Contact Me</a>
+            <a href="#work" class="btn btn-primary">View Selected Work</a>
+            <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+        </div>
+    </section>
+
+    <section class="container">
+        <h2 class="section-title" data-aos="fade-up">The Product Engine</h2>
+        <p class="section-subtitle" data-aos="fade-up" data-aos-delay="50">How I turn complex business problems into elegant, validated product realities.</p>
+        
+        <div class="engine-grid">
+            <div class="glass-card engine-step" data-aos="fade-up" data-aos-delay="100">
+                <div class="step-number">01</div>
+                <h3>Decode</h3>
+                <p class="body-text">I don't start with pixels; I start with the truth. Using SQL, Tableau, and MECE problem-solving, I strip away assumptions to uncover what users are actually doing versus what they say they are doing.</p>
+            </div>
+            <div class="glass-card engine-step" data-aos="fade-up" data-aos-delay="200">
+                <div class="step-number">02</div>
+                <h3>Align</h3>
+                <p class="body-text">Once the problem is isolated, I build the blueprint. I map out user journeys and ruthlessly prioritize feature sets using RICE and KANO frameworks to ensure we build for measurable impact, not just output.</p>
+            </div>
+            <div class="glass-card engine-step" data-aos="fade-up" data-aos-delay="300">
+                <div class="step-number">03</div>
+                <h3>Materialize</h3>
+                <p class="body-text">Strategy means nothing if it can't be executed. I translate PRDs into high-fidelity Figma prototypes and hand off clean, agile roadmaps that bridge the gap between design and technical feasibility.</p>
+            </div>
         </div>
     </section>
 
     <section id="work" class="container">
         <h2 class="section-title" data-aos="fade-up">Selected Work</h2>
+        <p class="section-subtitle" data-aos="fade-up" data-aos-delay="50">End-to-end product builds, teardowns, and strategic overhauls.</p>
+
         <div class="work-grid">
             <div class="glass-card work-card" data-aos="fade-up" data-aos-delay="100">
                 <div class="img-placeholder"></div>
-                <span class="tag">Product Strategy</span>
-                <h3>Fintech Dashboard</h3>
-                <p class="body-text">A comprehensive financial analytics platform empowering users to track wealth generation in real-time.</p>
+                <div class="tag-group">
+                    <span class="tag">0-to-1 Product</span>
+                    <span class="tag">System Design</span>
+                    <span class="tag">Marketplace Economics</span>
+                </div>
+                <h3>Kalakar</h3>
+                <p class="body-text">Architected India's first 3-sided creator marketplace unifying talent, fans, and production houses. Designed cohort learning flows, UPI-native monetization, and a proprietary discovery algorithm.</p>
                 <a href="#" class="link">View Case Study &rarr;</a>
             </div>
+
             <div class="glass-card work-card" data-aos="fade-up" data-aos-delay="200">
                 <div class="img-placeholder"></div>
-                <span class="tag">UX Design</span>
-                <h3>Creator Workspace</h3>
-                <p class="body-text">Streamlining the creative workflow with a unified dashboard for content scheduling and analytics.</p>
+                <div class="tag-group">
+                    <span class="tag">Product Strategy</span>
+                    <span class="tag">Feature Adoption</span>
+                    <span class="tag">UX Research</span>
+                </div>
+                <h3>CheQ</h3>
+                <p class="body-text">Reimagined the credit management lifecycle for a platform processing $5B+. Designed a unified strategy to simplify first-time user experiences while driving power-user feature adoption and personalization.</p>
                 <a href="#" class="link">View Case Study &rarr;</a>
             </div>
+
             <div class="glass-card work-card" data-aos="fade-up" data-aos-delay="300">
                 <div class="img-placeholder"></div>
-                <span class="tag">Design Systems</span>
-                <h3>Aura UI Kit</h3>
-                <p class="body-text">A scalable, accessible component library built for a global enterprise SaaS platform.</p>
+                <div class="tag-group">
+                    <span class="tag">UI/UX Redesign</span>
+                    <span class="tag">AI Integration</span>
+                    <span class="tag">Award Winner</span>
+                </div>
+                <h3>Jar Teardown & Redesign</h3>
+                <p class="body-text">Overhauled the core UI/UX of a popular savings app, integrating AI customer support and ultra-level personalization to drive retention. Awarded 2nd Runner-Up at a National Hackathon.</p>
                 <a href="#" class="link">View Case Study &rarr;</a>
             </div>
+
             <div class="glass-card work-card" data-aos="fade-up" data-aos-delay="400">
                 <div class="img-placeholder"></div>
-                <span class="tag">UI Design</span>
-                <h3>HealthTech App</h3>
-                <p class="body-text">Patient-facing mobile application focusing on clarity, accessibility, and empathy.</p>
+                <div class="tag-group">
+                    <span class="tag">FinTech</span>
+                    <span class="tag">Gamification</span>
+                    <span class="tag">GTM Strategy</span>
+                </div>
+                <h3>Bachat-Buddy</h3>
+                <p class="body-text">Designed a student-first personal finance app featuring gamified savings and UPI-first onboarding. Built an extended lifecycle mode to adapt smoothly as users transition into working professionals.</p>
+                <a href="#" class="link">View Case Study &rarr;</a>
+            </div>
+
+            <div class="glass-card work-card" data-aos="fade-up" data-aos-delay="500">
+                <div class="img-placeholder"></div>
+                <div class="tag-group">
+                    <span class="tag">AI Companion</span>
+                    <span class="tag">High-Fidelity Prototyping</span>
+                </div>
+                <h3>Aura for Minimalist</h3>
+                <p class="body-text">Created an AI skincare companion targeting the 18-25 demographic. Mapped complex user journeys to simplify product discovery and defined core success metrics including activation and feature adoption.</p>
+                <a href="#" class="link">View Case Study &rarr;</a>
+            </div>
+
+            <div class="glass-card work-card" data-aos="fade-up" data-aos-delay="600">
+                <div class="img-placeholder"></div>
+                <div class="tag-group">
+                    <span class="tag">Logic Design</span>
+                    <span class="tag">Onboarding Flows</span>
+                </div>
+                <h3>Roomiematch</h3>
+                <p class="body-text">Developed matching criteria, scoring logic, and frictionless onboarding flows for a student roommate platform. Prioritized the v1 feature set using KANO and RICE frameworks.</p>
                 <a href="#" class="link">View Case Study &rarr;</a>
             </div>
         </div>
     </section>
 
     <section class="container">
-        <h2 class="section-title" data-aos="fade-up">Deep Dives</h2>
+        <h2 class="section-title" data-aos="fade-up">Strategic Engagements</h2>
+        <p class="section-subtitle" data-aos="fade-up" data-aos-delay="50">Driving business ROI through consulting and process optimization.</p>
         
-        <div class="glass-card case-study-card" data-aos="fade-up">
-            <div class="img-placeholder"></div>
-            <div class="case-study-content">
-                <h3>E-Commerce Checkout Revamp</h3>
-                <p class="body-text">Redesigned the core checkout flow for a major retail brand, addressing friction points identified through extensive user research and A/B testing.</p>
-                <div class="metrics">
-                    <div class="metric-value">+34%</div>
-                    <div class="caption">Increase in user retention</div>
-                </div>
+        <div class="strategy-grid">
+            <div class="strategy-item" data-aos="fade-up" data-aos-delay="100">
+                <h4>BCG | Digital Transformation</h4>
+                <p class="body-text">Designed a transformation strategy for CoffeeCo. Researched market trends, identified pain points, and prioritized app features with a clean agile roadmap.</p>
             </div>
-        </div>
-
-        <div class="glass-card case-study-card" data-aos="fade-up">
-            <div class="case-study-content">
-                <h3>AI-Powered Search Experience</h3>
-                <p class="body-text">Integrated natural language processing into a legacy B2B product, drastically reducing the time required for users to locate complex data sets.</p>
-                <div class="metrics">
-                    <div class="metric-value">60%</div>
-                    <div class="caption">Reduction in task completion time</div>
-                </div>
+            <div class="strategy-item" data-aos="fade-up" data-aos-delay="200">
+                <h4>Accenture | Strategy Consulting</h4>
+                <p class="body-text">Recommended data-backed improvements to a government grant process, prioritized long-term initiatives, and managed complex client alignment.</p>
             </div>
-            <div class="img-placeholder"></div>
+            <div class="strategy-item" data-aos="fade-up" data-aos-delay="300">
+                <h4>Mastercard | Advisors & Client Services</h4>
+                <p class="body-text">Conducted deep-dive marketing analysis on sales and engagement, delivering a strategic plan with strict ROI-focused recommendations.</p>
+            </div>
+            <div class="strategy-item" data-aos="fade-up" data-aos-delay="400">
+                <h4>Freelance Strategy Consulting</h4>
+                <p class="body-text">Built executive-ready dashboards and drove small business growth through customer insights, resulting in measurable improvements in operational efficiency and revenue.</p>
+            </div>
         </div>
     </section>
 
-    <section class="philosophy" data-aos="zoom-in" data-aos-duration="1000">
-        <h2 class="display-font">"I believe great products emerge from deep user understanding, clear systems thinking and obsessive attention to detail."</h2>
-    </section>
-
-    <section class="container">
-        <h2 class="section-title" data-aos="fade-up">Skills & Tools</h2>
-        <div class="skills-grid">
-            <div class="glass-card skill-card" data-aos="fade-up" data-aos-delay="50">Figma</div>
-            <div class="glass-card skill-card" data-aos="fade-up" data-aos-delay="100">Prototyping</div>
-            <div class="glass-card skill-card" data-aos="fade-up" data-aos-delay="150">Design Systems</div>
-            <div class="glass-card skill-card" data-aos="fade-up" data-aos-delay="200">UX Research</div>
-            <div class="glass-card skill-card" data-aos="fade-up" data-aos-delay="250">Product Strategy</div>
-            <div class="glass-card skill-card" data-aos="fade-up" data-aos-delay="300">Interaction Design</div>
-            <div class="glass-card skill-card" data-aos="fade-up" data-aos-delay="350">Framer</div>
-            <div class="glass-card skill-card" data-aos="fade-up" data-aos-delay="400">Notion</div>
+    <section class="container split-section">
+        <div data-aos="fade-right">
+            <h2 class="section-title">The Arsenal</h2>
+            <p class="section-subtitle" style="margin-bottom: 32px;">The tools I use to execute the vision.</p>
+            
+            <div class="arsenal-category">
+                <h4>Strategy & Product Management</h4>
+                <p class="body-text">Agile/Scrum, PRDs, Roadmapping, RICE & KANO prioritization, OKRs, GTM Strategy, Jira, Trello.</p>
+            </div>
+            <div class="arsenal-category">
+                <h4>Data & Analytics</h4>
+                <p class="body-text">SQL, Tableau, Advanced Excel, Funnel Analysis, Experiment Design, Data Storytelling.</p>
+            </div>
+            <div class="arsenal-category">
+                <h4>UX & Prototyping</h4>
+                <p class="body-text">Figma, User Interviews, Personas, Journey Mapping, Wireframes, Interaction Design.</p>
+            </div>
         </div>
-    </section>
 
-    <section class="container">
-        <h2 class="section-title" data-aos="fade-up">What Others Say</h2>
-        <div class="testimonials-grid">
-            <div class="glass-card" data-aos="fade-up" data-aos-delay="100">
-                <p class="testimonial-text">"One of the most strategic designers I've worked with. They don't just make things look beautiful; they deeply understand the business goals and technical constraints."</p>
-                <div class="testimonial-author">
-                    <div class="author-avatar"></div>
-                    <div>
-                        <div style="font-weight: 600;">Sarah Jenkins</div>
-                        <div class="caption">VP of Product</div>
-                    </div>
-                </div>
-            </div>
-            <div class="glass-card" data-aos="fade-up" data-aos-delay="200">
-                <p class="testimonial-text">"Their ability to untangle complex user journeys and turn them into simple, elegant interfaces is unmatched. A true systems thinker."</p>
-                <div class="testimonial-author">
-                    <div class="author-avatar"></div>
-                    <div>
-                        <div style="font-weight: 600;">David Chen</div>
-                        <div class="caption">Engineering Lead</div>
-                    </div>
-                </div>
-            </div>
+        <div data-aos="fade-left">
+            <h2 class="section-title">Credentials & Recognition</h2>
+            <p class="section-subtitle" style="margin-bottom: 32px;">Validated expertise and continuous learning.</p>
+            
+            <ul class="credential-list body-text">
+                <li><span class="credential-highlight">🏆 2nd Runner-Up</span> National Hackathon (Jar App Redesign)</li>
+                <li><span class="credential-highlight">🏆 1st Runner-Up</span> Nailit x IIT Guwahati Hackathon</li>
+                <li><span class="credential-highlight">✦</span> Certified Product Owner (Agile Enterprise Coach London)</li>
+                <li><span class="credential-highlight">✦</span> Google Data Analytics Professional Certificate</li>
+                <li><span class="credential-highlight">✦</span> Advanced Lean Six Sigma Yellow Belt</li>
+                <li><span class="credential-highlight">✦</span> McKinsey Forward Program Alumni</li>
+            </ul>
         </div>
     </section>
 
     <section id="contact" class="container contact" data-aos="fade-up">
         <h2 class="hero-headline">Let's build something <br><span class="gradient-text">meaningful.</span></h2>
-        <p class="body-text">Currently open for new opportunities.</p>
+        <p class="body-text">I'm currently exploring new opportunities at the intersection of product, business analysis, and design.</p>
         <div class="contact-buttons">
             <a href="mailto:hello@example.com" class="btn btn-primary">Email Me</a>
             <a href="#" class="btn btn-secondary">LinkedIn</a>
-            <a href="#" class="btn btn-secondary">Dribbble</a>
         </div>
     </section>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         // Initialize Animate On Scroll
-        AOS.init({
-            duration: 800,
-            easing: 'ease-out-cubic',
-            once: true,
-            offset: 50
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 800,
+                easing: 'ease-out-cubic',
+                once: true,
+                offset: 50
+            });
         });
     </script>
 </body>
